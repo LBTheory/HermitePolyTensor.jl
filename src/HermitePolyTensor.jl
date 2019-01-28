@@ -38,8 +38,8 @@ using Reexport
 
 include("version.jl")
 
-include("HTP.jl")
-@reexport using .HTP
+include("HPT.jl")
+@reexport using .HPT
 
 
 end # module
