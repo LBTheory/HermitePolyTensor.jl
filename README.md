@@ -137,10 +137,10 @@ default `AbstractAlgebra` backend, and then the `SymEngine` backend, is done  as
 follows:
 
 ```julia-repl
-julia> HTC("xyxxyxy", 2)
+julia> HTC("xyxxyxy", D = 2)
 x^4*y^3-3//1*x^4*y-6//1*x^2*y^3+18//1*x^2*y+3//1*y^3-9//1*y
 
-julia> HTC("xyxxyxy", 2, be = "SymEngine")
+julia> HTC("xyxxyxy", D = 2, be = "SymEngine")
 -9*y + 18*x^2*y - 6*x^2*y^3 - 3*x^4*y + x^4*y^3 + 3*y^3
 
 ```
