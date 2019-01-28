@@ -1,0 +1,17 @@
+name = "HermitePolyTensor"
+uuid = "6242ccb0-2320-11e9-3d25-9db4530a3879"
+authors = ["C. Naaktgeboren <NaaktgeborenC.PhD@gmail.com>"]
+version = "0.1.0"
+
+[deps]
+AbstractAlgebra = "c3fe647b-3220-5bb0-a1ea-a7954cac585d"
+Combinatorics = "861a8166-3701-5b0c-9a16-15d98fcdc6aa"
+Reexport = "189a3867-3050-52da-a836-e630ba90ab69"
+SymEngine = "123dc426-2d89-5057-bbad-38513e3affd8"
+
+[extras]
+Random = "9a3f8284-a2c9-5f02-9a11-845980a1fd5c"
+Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
+
+[targets]
+test = ["Test", "Random"]
