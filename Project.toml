@@ -1,7 +1,7 @@
 name = "HermitePolyTensor"
 uuid = "6242ccb0-2320-11e9-3d25-9db4530a3879"
 authors = ["C. Naaktgeboren <NaaktgeborenC.PhD@gmail.com>"]
-version = "0.1.0"
+version = "0.0.0"
 
 [deps]
 AbstractAlgebra = "c3fe647b-3220-5bb0-a1ea-a7954cac585d"
