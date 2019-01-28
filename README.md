@@ -25,9 +25,9 @@ For    the    `AbstractAlgebra`    backend,    tensor    components    are    of
 `AbstractAlgebra.Generic.MPoly{Rational{BigInt}}`  type,  and  `AbstractAlgebra`
 methods should be used to further manipulate the polynomial components.
 
-Of  particular  interest  are  the  so-called  "probabilist's"  Hermite   Tensor
-Polynomials [2] — as opposed  to  the  so-called  "physicist's"  Hermite  Tensor
-Polynomials [2]. Either can be obtained, but the "probabilist's"  ones  are  the
+Of particular interest are  the  so-called  "probabilist's"  Hermite  Polynomial
+Tensors [2] — as opposed  to  the  so-called  "physicist's"  Hermite  Polynomial
+Tensors [2]. Either can be  obtained,  but  the  "probabilist's"  ones  are  the
 default setting for all function methods.
 
 ### 1.1. Feature Summary
@@ -118,17 +118,18 @@ julia> SVHP(10, be = "se", ax = 3, st = false)
 There is no hardcoded upper limit for  the  Hermite  polynomial  order  in  this
 package.
 
-### 2.2. Obtaining Hermite Tensor Polynomial components
+### 2.2. Obtaining Hermite Polynomial Tensor components
 
 Valid indices for the `HTC` function are a concatenation of  `"x"`,  `"y"`,  and
 `"z"`, as a Julia `String`, and correspond to the mathematical indices `1`, `2`,
 and `3`, respectively, so that `"xxyz"` mean a rank-4 tensor index  `1123`,  for
 instance.
 
-Let `H⁽ⁿ⁾(X)` denote the `n`-th order (probabilist's) Hermite tensor  of  vector
-`X = (x[, y[, z]])` defined in a `D`-dimensional Euclidean space, `1 ≤ D  ≤  3`,
-and `Hₖₗₘₙ...(X)` (`n` indices `i` with `1 ≤ i ≤ D`) be the `klmn...`  component
-of the `n`-th order Hermite tensor—in general, a multivariate polynomial in `X`.
+Let `H⁽ⁿ⁾(X)`  denote  the  `n`-th  order  (probabilist's)  Hermite  Tensor  for
+polynomials in `X = (x[, y[, z]])` defined in a `D`-dimensional Euclidean space,
+`1 ≤ D ≤ 3`, and `Hₖₗₘₙ...(X)` (`n` indices `i`  with  `1  ≤  i  ≤  D`)  be  the
+`klmn...` polynomial component of the `n`-th order Hermite polynomial  tensor  —
+in general, a multivariate polynomial in `X`.
 
 Obtaining  the  `H₁₂₁₁₂₁₂(X)`  polynomial  component  of  `H⁽⁷⁾(X)`  for  a  2-D
 Euclidean space, i.e., the `-9y +18x²y -6x²y³ -3x⁴y³ +3y³` polynomial, using the
@@ -232,7 +233,7 @@ Set(["zzxx", "xzzx", "xxzz", "xzxz", "zxzx", "zxxz"])
 
 ## 3. Benchmarks
 
-Low-rank Hermite tensor polynomial component by backend:
+Low-rank Hermite polynomial tensor component by backend:
 
 ```julia-repl
 julia> using BenchmarkTools
@@ -265,7 +266,7 @@ BenchmarkTools.Trial:
 
 ```
 
-High-rank Hermite tensor polynomial component by backend:
+High-rank Hermite polynomial tensor component by backend:
 
 ```julia-repl
 julia> @benchmark HTC("x"^20 * "y"^20 * "z"^20, be = "aa")

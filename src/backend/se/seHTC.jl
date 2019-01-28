@@ -7,7 +7,7 @@
 
     module seHTC
 
-SymEngine backend (se) module to the Hermite Tensor Polynomial package.
+SymEngine backend (se) module to the Hermite Polynomial Tensor package.
 
 # Usage
 
@@ -119,7 +119,7 @@ end
         id::String; D::Int = 2, st::Bool = true
     )::SymEngine.Basic
 
-Returns a single symbolic *component* of a Hermite tensor polynomial.
+Returns a single symbolic *component* of a Hermite polynomial tensor.
 
 The indices are specified by `id`, a `String` containing x's, y's,  and/or  z's;
 invalid characters on `id` are ignored, while `id`  without  x's,  y's,  or  z's

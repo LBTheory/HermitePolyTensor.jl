@@ -9,7 +9,7 @@ import Random
 import AbstractAlgebra
 
 #------------------------------------------------------------------------------#
-#     Hermite Tensor Polynomial Component (HTC) Tests -- SymEngine backend     #
+#     Hermite Polynomial Tensor Component (HTC) Tests -- SymEngine backend     #
 #------------------------------------------------------------------------------#
 
 # Preparations
@@ -81,7 +81,7 @@ end
     @test H_9z == HermitePolyTensor.SVHP(9, be = "se", ax = 3, st = false)
 end
 
-# Hermite Tensor Polynomial Component Tests
+# Hermite Polynomial Tensor Component Tests
 #------------------------------------------
 
 @testset "HTC, SymEng, Factorial, 3D, prob. Hermite T. Comp." begin
@@ -89,8 +89,11 @@ end
         for Y in [(He3y, 3), (He6y, 6), (He9y, 9)]
             for Z in [(He3z, 3), (He6z, 6), (He9z, 9)]
                 raw = "x"^X[2] * "y"^Y[2] * "z"^Z[2]    # raw (ordered) index set
-                idx = join(Random.shuffle([i for i in raw]))   # shuffled index set
-                @test SymEngine.expand(X[1] * Y[1] * Z[1]) == HermitePolyTensor.HTC(idx, D = 3, be = "se", st = true)
+                idx = join(Random.shuffle([i for i in raw])) # shuffled index set
+                @test (
+                    SymEngine.expand(X[1] * Y[1] * Z[1]) ==
+                    HermitePolyTensor.HTC(idx, D = 3, be = "se", st = true)
+                )
             end
         end
     end
@@ -101,8 +104,11 @@ end
         for Y in [(H_3y, 3), (H_6y, 6), (H_9y, 9)]
             for Z in [(H_3z, 3), (H_6z, 6), (H_9z, 9)]
                 raw = "x"^X[2] * "y"^Y[2] * "z"^Z[2]    # raw (ordered) index set
-                idx = join(Random.shuffle([i for i in raw]))   # shuffled index set
-                @test SymEngine.expand(X[1] * Y[1] * Z[1]) == HermitePolyTensor.HTC(idx, D = 3, be = "se", st = false)
+                idx = join(Random.shuffle([i for i in raw])) # shuffled index set
+                @test (
+                    SymEngine.expand(X[1] * Y[1] * Z[1]) ==
+                    HermitePolyTensor.HTC(idx, D = 3, be = "se", st = false)
+                )
             end
         end
     end
@@ -110,7 +116,7 @@ end
 
 
 #------------------------------------------------------------------------------#
-#  Hermite Tensor Polynomial Component (HTC) Tests -- AbstractAlgebra backend  #
+#  Hermite Polynomial Tensor Component (HTC) Tests -- AbstractAlgebra backend  #
 #------------------------------------------------------------------------------#
 
 # Preparations
@@ -182,7 +188,7 @@ end
     @test H_9z == HermitePolyTensor.SVHP(9, be = "aa", ax = 3, st = false)
 end
 
-# Hermite Tensor Polynomial Component Tests
+# Hermite Polynomial Tensor Component Tests
 #------------------------------------------
 
 @testset "HTC, AbsAlg, Factorial, 3D, prob. Hermite T. Comp." begin
@@ -190,8 +196,11 @@ end
         for Y in [(He3y, 3), (He6y, 6), (He9y, 9)]
             for Z in [(He3z, 3), (He6z, 6), (He9z, 9)]
                 raw = "x"^X[2] * "y"^Y[2] * "z"^Z[2]    # raw (ordered) index set
-                idx = join(Random.shuffle([i for i in raw]))   # shuffled index set
-                @test (X[1] * Y[1] * Z[1]) == HermitePolyTensor.HTC(idx, D = 3, be = "aa", st = true)
+                idx = join(Random.shuffle([i for i in raw])) # shuffled index set
+                @test (
+                    (X[1] * Y[1] * Z[1]) ==
+                    HermitePolyTensor.HTC(idx, D = 3, be = "aa", st = true)
+                )
             end
         end
     end
@@ -202,8 +211,11 @@ end
         for Y in [(H_3y, 3), (H_6y, 6), (H_9y, 9)]
             for Z in [(H_3z, 3), (H_6z, 6), (H_9z, 9)]
                 raw = "x"^X[2] * "y"^Y[2] * "z"^Z[2]    # raw (ordered) index set
-                idx = join(Random.shuffle([i for i in raw]))   # shuffled index set
-                @test (X[1] * Y[1] * Z[1]) == HermitePolyTensor.HTC(idx, D = 3, be = "aa", st = false)
+                idx = join(Random.shuffle([i for i in raw])) # shuffled index set
+                @test (
+                    (X[1] * Y[1] * Z[1]) ==
+                    HermitePolyTensor.HTC(idx, D = 3, be = "aa", st = false)
+                )
             end
         end
     end
@@ -225,7 +237,10 @@ end
 @testset "HT, unique tensor components                      " begin
     for theD in 1:3
         for theN in 1:10
-            @test length(HermitePolyTensor.HT(theN, D = theD)) == nMultiChooseK(theN, theD)
+            @test (
+                length(HermitePolyTensor.HT(theN, D = theD)) ==
+                nMultiChooseK(theN, theD)
+            )
         end
     end
 end
@@ -251,7 +266,12 @@ end
 @testset "HT, total tensor components                       " begin
     for theD in 1:3
         for theN in 1:10
-            @test sum(length(k.set) for k in values(HermitePolyTensor.HT(theN, D = theD))) == theD^theN
+            @test (
+                sum(length(k.set)
+                    for k in values(HermitePolyTensor.HT(theN, D = theD))
+                ) ==
+                theD^theN
+            )
         end
     end
 end

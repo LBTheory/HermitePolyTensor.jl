@@ -7,7 +7,7 @@
 
     module aaHTC
 
-AbstractAlgebra backend (aa) module to the Hermite Tensor Polynomial package.
+AbstractAlgebra backend (aa) module to the Hermite Polynomial Tensor package.
 
 # Usage
 
@@ -126,7 +126,7 @@ end
         id::String; D::Int = 2, st::Bool = true
     )::AbstractAlgebra.Generic.MPoly{Rational{BigInt}}
 
-Returns a single symbolic *component* of a Hermite Tensor Polynomial.
+Returns a single symbolic *component* of a Hermite Polynomial Tensor.
 
 The indices are specified by `id`, a `String` containing x's, y's,  and/or  z's;
 invalid characters on `id` are ignored, while `id`  without  x's,  y's,  or  z's
