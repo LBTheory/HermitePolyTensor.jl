@@ -1,0 +1,6 @@
+authors = ["C. Naaktgeboren <NaaktgeborenC.PhD@gmail.com>"]
+name = "HermitePolyTensor"
+uuid = "6242ccb0-2320-11e9-3d25-9db4530a3879"
+version = "0.1.0"
+
+[deps]
