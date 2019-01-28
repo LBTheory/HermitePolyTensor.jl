@@ -73,7 +73,7 @@ Exported user functions are: `SVHP`, `HTC`, and `HC` *only*.
 julia> using HermitePolyTensor
 
 julia> HermitePolyTensor.version()  # `version()` is *not* exported
-v"0.0.0"
+v"0.1.0"
 
 ```
 
